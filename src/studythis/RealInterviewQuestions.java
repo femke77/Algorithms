@@ -5,6 +5,10 @@ import java.util.Arrays;
 
 public class RealInterviewQuestions {
 
+	//given a number, print all valid combinations of open/close parenthesis
+	//example 2 : (()), ()()
+	//example 3: ((())), (()()), ()()()
+	
 	static void balancedParenthesis(int n) {
 		balancedParenthesis(n, n, "");
 	}
@@ -66,6 +70,7 @@ public class RealInterviewQuestions {
 
 	// ---------------------------------------------------------------------------------------
 	//given a string with special characters included, reverse only the letters and nothing else
+	//example: "A.c.vD.e!"  will be: 
 	public static void reverseLetters(String s){
 		
 		int leftIndex = 0;
@@ -73,9 +78,14 @@ public class RealInterviewQuestions {
 		char[] char_array = s.toCharArray();
 		
 		while(leftIndex <= rightIndex){
+		
+			while (!(Character.isLetter(char_array[leftIndex])) && leftIndex < rightIndex) {
+				leftIndex++;
+			}
 			
-			while (!(Character.isLetter(char_array[leftIndex++])));
-			while (!(Character.isLetter(char_array[rightIndex--])));
+			while (!(Character.isLetter(char_array[rightIndex])) && leftIndex < rightIndex){
+				rightIndex--;
+			}
 
 			char temp = char_array[rightIndex];
 			char_array[rightIndex] = char_array[leftIndex];
@@ -93,8 +103,8 @@ public class RealInterviewQuestions {
 	public static void main(String[] args) {
 
 		System.out.println(isPermutation("10101"));
-		balancedParenthesis(4);
-		reverseLetters("Ab&.!Cd!");
+		balancedParenthesis(3);
+		reverseLetters("A.c.vD.e!");
 	}
 
 }
