@@ -6,8 +6,7 @@ import java.util.Arrays;
 public class RealInterviewQuestions {
 
 	//given a number, print all valid combinations of open/close parenthesis
-	//example 2 : (()), ()()
-	//example 3: ((())), (()()), ()()()
+	//example 3: ((())), (()()), (())(), ()(()), ()()()
 	
 	static void balancedParenthesis(int n) {
 		balancedParenthesis(n, n, "");
@@ -62,7 +61,7 @@ public class RealInterviewQuestions {
 				return false;
 			else
 				leftIndex++;
-			rightIndex--;
+				rightIndex--;
 
 		}
 		return true;
@@ -70,7 +69,8 @@ public class RealInterviewQuestions {
 
 	// ---------------------------------------------------------------------------------------
 	//given a string with special characters included, reverse only the letters and nothing else
-	//example: "A.c.vD.e!"  will be: 
+	//example: "A.c.vD.e!"  will be: "e.D.vc.A!"
+	
 	public static void reverseLetters(String s){
 		
 		int leftIndex = 0;
